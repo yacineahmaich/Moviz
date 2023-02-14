@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .tag {
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
+  }
+  .cast-img {
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
+  }
+  .recommanded-movie-img {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  }
+  .movie-card-triangle {
+    clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@layer components {
+  .rate-tag {
+    @apply absolute top-0 left-0 bg-primary-dark  flex items-center gap-2 py-0 md:py-1  px-3  pr-4 md:pr-5 lg:pr-6 tag;
+  }
+
+  .side-bar-icon {
+    @apply w-6 h-6 md:w-8 md:h-8 fill-white transition-all hover:fill-primary;
+  }
+  .side-bar-tooltip {
+    @apply absolute left-20 rounded-xl text-white font-medium capitalize text-sm w-auto py-2 px-4 bg-dark top-1/2 border border-white -translate-y-1/2  scale-0 opacity-0 md:group-hover:scale-100 md:group-hover:opacity-100 transition-all duration-200 origin-left;
+  }
+}
+/* SCROLL BAR */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #f4f4f4 #f4f4f4;
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 9px;
+}
+*::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #444;
+}
