@@ -10,8 +10,9 @@ const MovieDetails = ({
   rate,
   releaseDate,
   overview,
-  views,
   genres,
+  onSave,
+  isSaved,
 }) => {
   return (
     <section className="relative w-full sm:h-[50vw] sm:max-h-[75vh] flex flex-col sm:flex-row">
@@ -31,9 +32,16 @@ const MovieDetails = ({
             {title}
           </h2>
           {/* save button */}
-          <button className="border border-dark rounded-full p-2 sm:p-3 transition-transform active:scale-90 ">
-            <svg className="w-5 h-5 fill-dark">
-              <use href={`${icons}#icon-heart`}></use>
+          <button
+            className={`border border-${
+              isSaved ? "primary-dark" : "dark"
+            } rounded-full p-2 sm:p-3 transition-transform active:scale-90 `}
+            onClick={onSave}
+          >
+            <svg
+              className={`w-5 h-5 fill-${isSaved ? "primary-dark" : "dark"}`}
+            >
+              <use href={`${icons}#icon-heart${isSaved ? "-fill" : ""}`}></use>
             </svg>
           </button>
         </div>

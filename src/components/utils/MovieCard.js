@@ -24,7 +24,10 @@ const MovieCard = ({ id, idx, poster, title, rate, releaseDate, views }) => {
 
       <div className="px-2 py-2 lg:px-3">
         <Link to={`/movies/${id}`}>
-          <h3 className="tracking-wide text-lg text-dark md:text-xl xl:text-2xl lg:mb-2 truncate cursor-pointer hover:text-primary-dark w-max max-w-full">
+          <h3
+            className="tracking-wide text-lg text-dark md:text-xl xl:text-2xl lg:mb-2 truncate cursor-pointer hover:text-primary-dark w-max max-w-full"
+            id="movie-card-title"
+          >
             {title}
           </h3>
         </Link>

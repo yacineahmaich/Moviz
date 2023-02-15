@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSavedContext } from "../context/saved";
 import { useParams } from "react-router-dom";
 import {
   MovieDetails,
@@ -95,6 +96,14 @@ const Movie = () => {
     })();
   }, [id]);
 
+  const { savedMovies, saveMovie } = useSavedContext();
+
+  const saveMovieHandler = () => {
+    saveMovie(movie);
+  };
+
+  const isSaved = savedMovies?.map((item) => item.id).includes(movie.id);
+
   return (
     <div className="w-full p-4 min-h-[calc(100vh-16px)] md:min-h-[calc(100vh-20px)] md:p-5 lg:p-7">
       {isLoading ? (
@@ -109,6 +118,8 @@ const Movie = () => {
             recommandationsDate={movie.recommandationsDate}
             views={movie.views}
             genres={movie.genres}
+            onSave={saveMovieHandler}
+            isSaved={isSaved}
           />
           <Cast cast={movie.cast ?? []} />
           <Recommandations movies={movie.recommandations ?? []} />

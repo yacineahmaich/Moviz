@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 
-const Modal = ({ children }) => {
+const Modal = ({ children, onClose }) => {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => (document.body.style.overflow = "auto");
+  }, []);
   return (
     <>
       {createPortal(
-        <div className="fixed inset-0 z-40 bg-gray backdrop-blur-sm"></div>,
+        <div
+          className="fixed inset-0 z-40 bg-gray backdrop-blur-sm"
+          onClick={onClose}
+        ></div>,
         document.getElementById("modal")
       )}
       {createPortal(

@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logo-icon-light.png";
 import icons from "../../assets/icons.svg";
 import Modal from "../UI/Modal";
 import Saved from "../Saved";
 
 const Header = () => {
+  const [showSaved, setShowSaved] = useState(false);
+
+  const openSavedHandler = () => {
+    setShowSaved(true);
+  };
+  const closeSavedHandler = () => {
+    setShowSaved(false);
+  };
+
   return (
     <header className="fixed h-16 md:h-20 top-0 left-0  w-full flex items-center justify-between px-4 md:px-8 md:pl-28 bg-white z-30 border-b border-gray-light">
       <div className="h-14 md:h-full">
@@ -18,7 +27,10 @@ const Header = () => {
           </svg>
         </button>
 
-        <button className="group flex items-center gap-6 bg-primary py-1 px-6 rounded-full hover:border-b-4 active:border-b-2  border-b-dark transition-all">
+        <button
+          className="group flex items-center gap-6 bg-primary py-1 px-6 rounded-full hover:border-b-4 active:border-b-2  border-b-dark transition-all"
+          onClick={openSavedHandler}
+        >
           <span className="text-white text-lg font-normal capitalize font-bebas">
             saved
           </span>
@@ -28,9 +40,11 @@ const Header = () => {
         </button>
 
         {/* Modak */}
-        {/* <Modal>
-          <Saved />
-        </Modal> */}
+        {showSaved && (
+          <Modal onClose={closeSavedHandler}>
+            <Saved onClose={closeSavedHandler} />
+          </Modal>
+        )}
       </div>
     </header>
   );
