@@ -4,7 +4,15 @@ import poster from "../../assets/demo-movie-poster.jpg";
 import Genres from "./Genres";
 import Overview from "./Overview";
 
-const MovieDetails = () => {
+const MovieDetails = ({
+  poster,
+  title,
+  rate,
+  releaseDate,
+  overview,
+  views,
+  genres,
+}) => {
   return (
     <section className="relative w-full sm:h-[50vw] sm:max-h-[75vh] flex flex-col sm:flex-row">
       {/* poster */}
@@ -20,7 +28,7 @@ const MovieDetails = () => {
       <div className="w-full h-full flex flex-col px-0 sm:px-6 font-bebas sm:pt-2 md:pt-4">
         <div className="w-full flex items-baseline sm:justify-start gap-3 mb-3 sm:mb-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xluppercase font-semibold tracking-wide sm:text-left text-dark">
-            spider-man
+            {title}
           </h2>
           {/* save button */}
           <button className="border border-dark rounded-full p-2 sm:p-3 transition-transform active:scale-90 ">
@@ -31,9 +39,9 @@ const MovieDetails = () => {
         </div>
         {/* Date & Rate */}
         <div>
-          <h5 className="text-dark text-xl md:text-2xl">01-02-1989</h5>
+          <h5 className="text-dark text-xl md:text-2xl">{releaseDate}</h5>
           <label className="text-xl flex items-center gap-1">
-            <span>6.3</span>
+            <span>{rate}</span>
             <svg className="w-4 h-4 translate-y-[-2px]">
               <use href={`${icons}#icon-star`}></use>
             </svg>
@@ -41,10 +49,10 @@ const MovieDetails = () => {
         </div>
 
         {/* Genres */}
-        <Genres />
+        <Genres genres={genres} />
 
         {/* overview */}
-        <Overview />
+        <Overview overview={overview} />
       </div>
     </section>
   );

@@ -28,9 +28,9 @@ const Header = () => {
         </button>
 
         {/* Modak */}
-        <Modal>
+        {/* <Modal>
           <Saved />
-        </Modal>
+        </Modal> */}
       </div>
     </header>
   );
