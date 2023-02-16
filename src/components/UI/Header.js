@@ -52,17 +52,17 @@ const Header = () => {
 
       <div className="h-full flex items-center gap-6">
         <button
-          className="relative border border-transparent hover:border-dark dark:hover:border-white rounded-full w-10 h-10 overflow-hidden"
+          className="relative border border-transparent hover:border-dark dark:hover:border-yellow-400 rounded-full w-10 h-10 overflow-hidden"
           onClick={toggleThemeHandler}
         >
-          <div className="absolute w-full bottom-0  left-0 ">
+          <div className="absolute w-full right-0 bottom-0 dark:-bottom-10 transition-all -translate-x-[1px]">
             <span className="w-10 h-10 flex justify-center items-center">
-              <svg className="w-6 h-6 fill-dark dark:fill-white dark:fill-white -translate-x-[1px] -translate-y-[1px]">
+              <svg className="w-6 h-6 fill-yellow-400  ">
                 <use href={`${icons}#icon-sun`}></use>
               </svg>
             </span>
-            <span className="p-2 w-10 h-10 flex justify-center items-center">
-              <svg className="w-6 h-6 fill-dark dark:fill-white -translate-x-[1px] -translate-y-[1px]">
+            <span className="w-10 h-10 flex justify-center items-center">
+              <svg className="w-6 h-6 fill-dark dark:fill-white ">
                 <use href={`${icons}#icon-moon`}></use>
               </svg>
             </span>
