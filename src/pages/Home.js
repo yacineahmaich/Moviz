@@ -23,24 +23,27 @@ const Home = () => {
   return (
     <div className="w-full">
       {isLoading && page === 1 && <MovieShowCaseSkeleton />}
-      {!isLoading | (page > 1) && <MovieShowCase movies={movies} />}
+      {!isLoading | (page > 1) ? <MovieShowCase movies={movies} /> : null}
       <div className="mt-12 mb-4 py-2 px-4 md:px-8">
-        <h3 className="text-xl md:text-2xl mb-8">Exclusive & New</h3>
+        <h3 className="text-xl md:text-2xl mb-8 dark:text-gray-light">
+          Exclusive & New
+        </h3>
         {isLoading && page === 1 && getCardsSkeleton(8)}
         {!isLoading | (page > 1) && <MoviesList movies={movies} />}
       </div>
 
-      <div className="w-full flex justify-center py-4">
+      <div className="w-full flex justify-center py-8">
         {page < totalPages && !isLoading && (
           <button
             className="px-8 py-2 rounded bg-slate-100 uppercase text-dark text-sm shadow-md"
             onClick={getNextPage}
           >
             load more
+            <span className="ml-2 font-semibold">&darr;</span>
           </button>
         )}
         {isLoading && page > 1 && (
-          <svg className="w-6 h-6 fill-dark animate-spin">
+          <svg className="w-6 h-6 fill-dark dark:fill-gray-light animate-spin">
             <use href={`${icons}#icon-loader`}></use>
           </svg>
         )}

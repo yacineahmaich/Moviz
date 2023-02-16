@@ -28,18 +28,22 @@ const MovieDetails = ({
       {/* info */}
       <div className="w-full h-full flex flex-col px-0 sm:px-6 font-bebas sm:pt-2 md:pt-4">
         <div className="w-full flex items-baseline sm:justify-start gap-3 mb-3 sm:mb-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xluppercase font-semibold tracking-wide sm:text-left text-dark">
+          <h2 className="text-3xl md:text-4xl lg:text-5xluppercase font-semibold tracking-wide sm:text-left text-dark dark:text-gray-light">
             {title}
           </h2>
           {/* save button */}
           <button
             className={`border border-${
               isSaved ? "primary-dark" : "dark"
-            } rounded-full p-2 sm:p-3 transition-transform active:scale-90 `}
+            } dark:border-${
+              isSaved ? "primary-dark" : "gray-light"
+            }  rounded-full p-2 sm:p-3 transition-transform active:scale-90`}
             onClick={onSave}
           >
             <svg
-              className={`w-5 h-5 fill-${isSaved ? "primary-dark" : "dark"}`}
+              className={`w-5 h-5 fill-${
+                isSaved ? "primary-dark" : "dark"
+              } dark:fill-${isSaved ? "primary-dark" : "gray-light"}`}
             >
               <use href={`${icons}#icon-heart${isSaved ? "-fill" : ""}`}></use>
             </svg>
@@ -47,7 +51,9 @@ const MovieDetails = ({
         </div>
         {/* Date & Rate */}
         <div>
-          <h5 className="text-dark text-xl md:text-2xl">{releaseDate}</h5>
+          <h5 className="text-dark dark:text-black text-xl md:text-2xl">
+            {releaseDate}
+          </h5>
           <label className="text-xl flex items-center gap-1">
             <span>{rate}</span>
             <svg className="w-4 h-4 translate-y-[-2px]">

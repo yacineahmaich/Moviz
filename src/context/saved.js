@@ -8,7 +8,7 @@ export const useSavedContext = () => useContext(SavedContext);
 
 const SavedProvider = ({ children }) => {
   const [savedMovies, setSavedMovies] = useState(null);
-  console.log(savedMovies);
+
   // Load Saved movies from local storage
   useEffect(() => {
     const storage = JSON.parse(localStorage.getItem("saved"));

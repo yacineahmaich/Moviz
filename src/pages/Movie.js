@@ -115,7 +115,7 @@ const Movie = () => {
             title={movie.title}
             rate={movie.rate}
             overview={movie.overview}
-            recommandationsDate={movie.recommandationsDate}
+            releaseDate={movie.releaseDate}
             views={movie.views}
             genres={movie.genres}
             onSave={saveMovieHandler}

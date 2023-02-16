@@ -11,7 +11,7 @@ const Modal = ({ children, onClose }) => {
     <>
       {createPortal(
         <div
-          className="fixed inset-0 z-40 bg-gray backdrop-blur-sm"
+          className="fixed inset-0 z-40 bg-gray backdrop-blur-sm dark:backdrop-blur-md"
           onClick={onClose}
         ></div>,
         document.getElementById("modal")

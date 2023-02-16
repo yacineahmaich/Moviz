@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { TIMEOUT_SEC } from "../config/APP";
 import { timeout } from "../utils";
 

@@ -21,7 +21,9 @@ const Popular = () => {
   return (
     <div className="w-full">
       <div className="mt-12 mb-4 py-2 px-4 md:px-8">
-        <h3 className="text-xl md:text-2xl mb-8">Popular</h3>
+        <h3 className="text-xl md:text-2xl mb-8 dark:text-gray-light">
+          Popular
+        </h3>
         {isLoading && page === 1 && getCardsSkeleton(8)}
         {!isLoading | (page > 1) && <MoviesList movies={movies} />}
       </div>
@@ -33,10 +35,11 @@ const Popular = () => {
             onClick={getNextPage}
           >
             load more
+            <span className="ml-2 font-semibold">&darr;</span>
           </button>
         )}
         {isLoading && page > 1 && (
-          <svg className="w-6 h-6 fill-dark animate-spin">
+          <svg className="w-6 h-6 fill-dark dark:fill-gray-light animate-spin">
             <use href={`${icons}#icon-loader`}></use>
           </svg>
         )}

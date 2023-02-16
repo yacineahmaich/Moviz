@@ -6,7 +6,7 @@ const Genres = ({ genres }) => {
       {genres.map((genre) => (
         <li
           key={genre.id}
-          className="lg:py-[2px] px-3 lg:px-5 lg:rounded-full border rounded-xl"
+          className="lg:py-[2px] px-3 lg:px-5 lg:rounded-full border rounded-xl dark:border-gray-light dark:text-gray-light"
         >
           {genre.name}
         </li>
