@@ -17,7 +17,7 @@ const Modal = ({ children, onClose }) => {
         document.getElementById("modal")
       )}
       {createPortal(
-        <div className="fixed top-[calc(50%-2.5rem)] md:top-1/2 left-1/2 md:left-[calc(50%+3rem)] -translate-x-1/2 -translate-y-1/2 z-50 min-h-[40vh] max-h-[70vh] overflow-auto">
+        <div className="fixed top-[calc(50%-2.5rem)] md:top-1/2 left-1/2 md:left-[calc(50%+3rem)] -translate-x-1/2 -translate-y-1/2 z-50 min-h-[40vh] max-h-[75vh] overflow-auto">
           {children}
         </div>,
         document.getElementById("modal")

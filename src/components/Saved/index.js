@@ -13,7 +13,7 @@ const Saved = ({ onClose }) => {
   };
 
   return (
-    <div className="relative w-[90vw] md:w-[80vw] px-4 pt-4 pb-6 md:pb-8 bg-white dark:bg-opacity-40">
+    <div className="relative w-[90vw] md:w-[80vw] px-4 pt-4 pb-6 md:pb-8 bg-white dark:bg-opacity-50">
       <h3 className="text-xl md:text-2xl font-semibold text-dark  dark:text-gray-light mb-8">
         Saved
       </h3>

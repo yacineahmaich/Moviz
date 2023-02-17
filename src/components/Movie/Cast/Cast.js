@@ -2,6 +2,8 @@ import React from "react";
 import CastItem from "./CastItem";
 
 const Cast = ({ cast }) => {
+  if (cast.length === 0) return null;
+
   return (
     <section className="mt-12">
       <h3 className="text-xl font-normal text-dark dark:text-gray-light mb-8">

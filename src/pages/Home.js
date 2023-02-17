@@ -33,20 +33,21 @@ const Home = () => {
       </div>
 
       <div className="w-full flex justify-center py-8">
-        {page < totalPages && !isLoading && (
-          <button
-            className="px-8 py-2 rounded bg-slate-100 uppercase text-dark text-sm shadow-md"
-            onClick={getNextPage}
-          >
-            load more
-            <span className="ml-2 font-semibold">&darr;</span>
-          </button>
-        )}
-        {isLoading && page > 1 && (
-          <svg className="w-6 h-6 fill-dark dark:fill-gray-light animate-spin">
-            <use href={`${icons}#icon-loader`}></use>
-          </svg>
-        )}
+        <button
+          className="w-44 flex justify-center py-2 rounded bg-slate-100 uppercase text-dark text-sm shadow-md"
+          onClick={getNextPage}
+        >
+          {isLoading && page > 1 ? (
+            <svg className="w-5 h-5 fill-dark animate-spin">
+              <use href={`${icons}#icon-loader`}></use>
+            </svg>
+          ) : (
+            <>
+              load more
+              <span className="ml-2 font-semibold">&darr;</span>
+            </>
+          )}
+        </button>
       </div>
     </div>
   );
