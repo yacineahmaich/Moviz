@@ -27,23 +27,23 @@ const MovieShowCase = ({ movies }) => {
       />
       <div className="absolute min-w-[180px] max-w-[180px] sm:max-w-[350px] md:max-w-[430px] lg:max-w-[620px] xl:max-w-max sm:min-w-[250px] md:min-w-[300px] bottom-2 left-2 md:bottom-6 md:left-6 bg-[#fff4]  p-3 rounded-sm">
         <Link to={`/movies/${movie.id}`}>
-          <h2 className="text-2xl md:text-4xl tracking-wider uppercase text-white hover:text-primary-dark w-max max-w-full  truncate">
+          <h2 className="max-w-full text-2xl tracking-wider text-white uppercase truncate md:text-4xl hover:text-primary-dark w-max">
             {movie.title}
           </h2>
         </Link>
         <h5 className="text-black text-md md:text-lg">{movie.releaseDate}</h5>
-        <label className="text-black flex items-center gap-2 text-sm md:text-lg">
+        <label className="flex items-center gap-2 text-sm text-black md:text-lg">
           {movie.rate}
           <svg className="w-3 h-3 md:w-4 md:h-4 fill-black translate-y-[-2px]">
             <use href={`${icons}#icon-star`}></use>
           </svg>
         </label>
       </div>
-      <div className="absolute  w-32 md:w-36 lg:w-44 bottom-0 right-8 md:right-14  border-8 border-white bg-gray-light translate-y-1/4">
+      <div className="absolute bottom-0 w-32 border-8 border-white md:w-36 lg:w-44 right-8 md:right-14 bg-gray-light translate-y-1/4">
         <img
           src={movie.poster}
           alt={movie.title}
-          className="h-36 md:h-44 lg:h-48 w-full object-cover"
+          className="object-cover w-full h-36 md:h-44 lg:h-48"
         />
       </div>
     </div>
