@@ -42,38 +42,26 @@ const Movie = () => {
           ]
         );
 
-        // const res = await fetch(
-        //   `${API_BASE_URL}movie/${id}?api_key=${API_KEY}`
-        // );
-
-        // if (!res.ok) throw new Error("Something went wrong !");
-
-        // const data = await res.json();
-
         const cast = creditsData.cast
           .filter((cast) => cast.profile_path)
-          .map((cast) => {
-            return {
-              id: cast.id,
-              character: cast.character,
-              name: cast.name,
-              image: `https://image.tmdb.org/t/p/w500${cast.profile_path}`,
-            };
-          })
+          .map((cast) => ({
+            id: cast.id,
+            character: cast.character,
+            name: cast.name,
+            image: `https://image.tmdb.org/t/p/w500${cast.profile_path}`,
+          }))
           .slice(0, 8);
 
-        const recommandations = recommandationsData.results.map((movie) => {
-          return {
-            id: movie.id,
-            backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
-            poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-            title: movie.title,
-            overview: movie.overview,
-            rate: movie.vote_average.toFixed(1),
-            releaseDate: movie.release_date,
-            views: movie.vote_count,
-          };
-        });
+        const recommandations = recommandationsData.results.map((movie) => ({
+          id: movie.id,
+          backdrop: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+          poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+          title: movie.title,
+          overview: movie.overview,
+          rate: movie.vote_average.toFixed(1),
+          releaseDate: movie.release_date,
+          views: movie.vote_count,
+        }));
 
         setMovie({
           id: movieData.id,

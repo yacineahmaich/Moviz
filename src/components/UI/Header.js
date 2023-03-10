@@ -3,6 +3,7 @@ import logo from "../../assets/logo-light.png";
 import icons from "../../assets/icons.svg";
 import Modal from "../UI/Modal";
 import Saved from "../Saved";
+import Search from "./Search";
 
 const Header = () => {
   const [showSaved, setShowSaved] = useState(false);
@@ -45,23 +46,24 @@ const Header = () => {
   }, [theme]);
 
   return (
-    <header className="fixed h-16 md:h-20 top-0 left-0  w-full flex items-center justify-between px-4 md:px-8 md:pl-28 bg-white dark:bg-dark  z-30 border-b border-gray-light dark:border-zinc-700">
-      <div className="h-14 dark:rounded-lg overflow-hidden">
+    <header className="fixed top-0 left-0 z-30 flex items-center justify-between w-full h-16 px-4 bg-white border-b md:h-20 md:px-8 md:pl-28 dark:bg-dark border-gray-light dark:border-zinc-700">
+      <div className="h-10 overflow-hidden md:h-14 dark:rounded-lg">
         <img src={logo} alt="Logo" className="max-h-full" />
       </div>
 
-      <div className="h-full flex items-center gap-6">
+      <div className="flex items-center h-full gap-2 md:gap-6">
+        <Search />
         <button
-          className="relative border border-transparent hover:border-dark dark:hover:border-yellow-400 rounded-full w-10 h-10 overflow-hidden"
+          className="relative w-10 h-10 overflow-hidden border border-transparent rounded-full hover:border-dark dark:hover:border-yellow-400"
           onClick={toggleThemeHandler}
         >
           <div className="absolute w-full right-0 bottom-0 dark:-bottom-10 transition-all -translate-x-[1px]">
-            <span className="w-10 h-10 flex justify-center items-center">
-              <svg className="w-6 h-6 fill-yellow-400  ">
+            <span className="flex items-center justify-center w-10 h-10">
+              <svg className="w-6 h-6 fill-yellow-400 ">
                 <use href={`${icons}#icon-sun`}></use>
               </svg>
             </span>
-            <span className="w-10 h-10 flex justify-center items-center">
+            <span className="flex items-center justify-center w-10 h-10">
               <svg className="w-6 h-6 fill-dark dark:fill-white ">
                 <use href={`${icons}#icon-moon`}></use>
               </svg>
@@ -70,10 +72,10 @@ const Header = () => {
         </button>
 
         <button
-          className="group flex items-center gap-6 bg-primary py-1 px-6 rounded-full hover:border-b-4 active:border-b-2  border-b-dark dark:border-b-white transition-all"
+          className="flex items-center gap-2 px-6 py-1 transition-all rounded-full md:gap-6 group bg-primary hover:border-b-4 active:border-b-2 border-b-dark dark:border-b-white"
           onClick={openSavedHandler}
         >
-          <span className="text-white text-lg font-normal capitalize font-bebas">
+          <span className="text-lg font-normal text-white capitalize font-bebas">
             saved
           </span>
           <svg className="w-5 h-5 fill-primary-dark group-hover:fill-dark dark:group-hover:fill-white">

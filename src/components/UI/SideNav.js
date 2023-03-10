@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const SideNav = () => {
   return (
-    <aside className="fixed left-0 bottom-0 w-full md:w-24 h-20 md:h-full flex items-center justify-center border-r border-transparent dark:border-gray bg-dark font-poppins z-40">
+    <aside className="fixed bottom-0 left-0 z-40 flex items-center justify-center w-full h-20 border-t md:border-r md:w-24 md:h-full border-gray bg-dark font-poppins">
       <ul className="flex gap-8 md:flex-col">
         <SideBarIcon icon={`${icons}#icon-home`} text="home" />
         <SideBarIcon
@@ -29,7 +29,7 @@ const SideNav = () => {
 
 const SideBarIcon = ({ icon, text, page = "/" }) => {
   return (
-    <li className="group relative cursor-pointer">
+    <li className="relative cursor-pointer group">
       <NavLink
         to={page}
         className={({ isActive }) => (isActive ? "fill-primary" : "fill-white")}

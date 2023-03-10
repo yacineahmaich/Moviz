@@ -5,12 +5,15 @@ import { timeout } from "../utils";
 const useFetch = (url) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!url) return;
+
     (async function () {
       try {
         setIsLoading(true);
+        setError(null);
         const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
 
         if (!res.ok)

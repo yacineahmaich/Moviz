@@ -13,18 +13,18 @@ const Saved = ({ onClose }) => {
   };
 
   return (
-    <div className="relative w-[90vw] md:w-[80vw] px-4 pt-4 pb-6 md:pb-8 bg-white dark:bg-opacity-50">
-      <h3 className="text-xl md:text-2xl font-semibold text-dark  dark:text-gray-light mb-8">
+    <div className="relative w-[90vw] md:w-[80vw] px-4 pt-4 pb-6 md:pb-8 bg-white dark:bg-dark">
+      <h3 className="mb-8 text-xl font-semibold md:text-2xl text-dark dark:text-gray-light">
         Saved
       </h3>
       <div onClick={closeHandler}>
         <MoviesList movies={savedMovies} />
         {savedMovies.length === 0 && (
-          <div className="w-full flex flex-col items-center gap-6 justify-center">
+          <div className="flex flex-col items-center justify-center w-full gap-6">
             <svg className="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 fill-gray">
               <use href={`${icons}#icon-empty`}></use>
             </svg>
-            <p className="text-sm md:text-lg  text-dark dark:text-black mb-8">
+            <p className="mb-8 text-sm md:text-lg text-dark dark:text-black">
               Your saved is currently empty!
             </p>
           </div>
@@ -32,10 +32,10 @@ const Saved = ({ onClose }) => {
       </div>
 
       <button
-        className="absolute top-4 right-4 shadow-md p-2 rounded-full dark:shadow-gray"
+        className="absolute p-2 rounded-full shadow-md top-4 right-4 dark:shadow-gray"
         onClick={onClose}
       >
-        <svg className="w-4 md:w-5 h-4 md:h-5 fill-dark dark:fill-white">
+        <svg className="w-4 h-4 md:w-5 md:h-5 fill-dark dark:fill-white">
           <use href={`${icons}#icon-close`}></use>
         </svg>
       </button>

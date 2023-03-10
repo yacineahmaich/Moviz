@@ -2,7 +2,7 @@ import React from "react";
 
 const Genres = ({ genres }) => {
   return (
-    <ul className="flex flex-wrap gap-3 lg:gap-4  font-poppins text-sm my-8">
+    <ul className="flex flex-wrap gap-3 my-4 text-sm lg:gap-4 font-poppins">
       {genres.map((genre) => (
         <li
           key={genre.id}

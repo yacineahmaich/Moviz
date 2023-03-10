@@ -1,6 +1,5 @@
 import React from "react";
 import icons from "../../assets/icons.svg";
-import poster from "../../assets/demo-movie-poster.jpg";
 import Genres from "./Genres";
 import Overview from "./Overview";
 
@@ -21,45 +20,49 @@ const MovieDetails = ({
         <img
           src={poster}
           alt="poster"
-          className="w-full h-full object-cover bg-top"
+          className="object-cover w-full h-full bg-top"
         />
       </div>
 
       {/* info */}
-      <div className="w-full h-full flex flex-col px-0 sm:px-6 font-bebas sm:pt-2 md:pt-4">
-        <div className="w-full flex items-baseline sm:justify-start gap-3 mb-3 sm:mb-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xluppercase font-semibold tracking-wide sm:text-left text-dark dark:text-gray-light">
-            {title}
-          </h2>
-          {/* save button */}
-          <button
-            className={`border border-${
-              isSaved ? "primary-dark" : "dark"
-            } dark:border-${
-              isSaved ? "primary-dark" : "gray-light"
-            }  rounded-full p-2 sm:p-3 transition-transform active:scale-90`}
-            onClick={onSave}
-          >
-            <svg
-              className={`w-5 h-5 fill-${
-                isSaved ? "primary-dark" : "dark"
-              } dark:fill-${isSaved ? "primary-dark" : "gray-light"}`}
-            >
-              <use href={`${icons}#icon-heart${isSaved ? "-fill" : ""}`}></use>
-            </svg>
-          </button>
-        </div>
-        {/* Date & Rate */}
+      <div className="flex flex-col w-full h-full px-0 sm:px-6 font-bebas sm:pt-2 md:pt-4">
         <div>
-          <h5 className="text-dark dark:text-black text-xl md:text-2xl">
-            {releaseDate}
-          </h5>
-          <label className="text-xl flex items-center gap-1">
-            <span>{rate}</span>
-            <svg className="w-4 h-4 translate-y-[-2px]">
-              <use href={`${icons}#icon-star`}></use>
-            </svg>
-          </label>
+          <div className="flex items-baseline w-full gap-3 mb-1 sm:justify-start md:mb-4">
+            <h2 className="text-3xl font-semibold tracking-wide uppercase sm:text-2xl lg:text-5xl sm:text-left text-dark dark:text-gray-light">
+              {title}
+            </h2>
+            {/* save button */}
+            <button
+              className={`border border-${
+                isSaved ? "primary-dark" : "dark"
+              } dark:border-${
+                isSaved ? "primary-dark" : "gray-light"
+              }  rounded-full p-2 sm:p-3 transition-transform active:scale-90`}
+              onClick={onSave}
+            >
+              <svg
+                className={`w-4 md:h-5 h-4 md:w-5 fill-${
+                  isSaved ? "primary-dark" : "dark"
+                } dark:fill-${isSaved ? "primary-dark" : "gray-light"}`}
+              >
+                <use
+                  href={`${icons}#icon-heart${isSaved ? "-fill" : ""}`}
+                ></use>
+              </svg>
+            </button>
+          </div>
+          {/* Date & Rate */}
+          <div>
+            <h5 className="text-xl text-dark dark:text-black md:text-2xl">
+              {releaseDate}
+            </h5>
+            <label className="flex items-center gap-1 text-xl">
+              <span>{rate}</span>
+              <svg className="w-4 h-4 translate-y-[-2px]">
+                <use href={`${icons}#icon-star`}></use>
+              </svg>
+            </label>
+          </div>
         </div>
 
         {/* Genres */}

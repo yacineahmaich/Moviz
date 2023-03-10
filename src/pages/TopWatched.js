@@ -34,7 +34,7 @@ const TopWatched = () => {
         >
           {isLoading && page > 1 ? (
             <svg className="w-5 h-5 fill-dark animate-spin">
-              <use href={`${icons}#icon-loader`}></use>
+              <use href={`${icons}#icon-spinner`}></use>
             </svg>
           ) : (
             <>

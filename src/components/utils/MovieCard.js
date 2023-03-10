@@ -18,22 +18,24 @@ const MovieCard = ({ id, idx, poster, title, rate, releaseDate, views }) => {
         <img
           src={poster}
           alt="poster"
-          className="w-full h-40 md:h-48 lg:h-56 object-cover"
+          className="object-cover w-full h-40 md:h-48 lg:h-56"
         />
       </div>
 
       <div className="px-2 py-2 lg:px-3">
         <Link to={`/movies/${id}`}>
           <h3
-            className="tracking-wide text-lg text-dark md:text-xl xl:text-2xl lg:mb-2 truncate cursor-pointer hover:text-primary-dark w-max max-w-full dark:text-white dark:hover:text-primary-dark"
+            className="max-w-full text-lg tracking-wide truncate cursor-pointer text-dark md:text-xl xl:text-2xl lg:mb-2 hover:text-primary-dark w-max dark:text-white dark:hover:text-primary-dark"
             id="movie-card-title"
           >
             {title}
           </h3>
         </Link>
-        <h5 className="text-dark lg:text-lg dark:text-gray">{releaseDate}</h5>
-        <div className="w-full flex justify-between items-center">
-          <label className="flex items-center justify-between gap-2 text-gray lg:text-lg dark:text-gray">
+        <h5 className="text-dark lg:text-lg dark:text-[#b1aeae]">
+          {releaseDate}
+        </h5>
+        <div className="flex items-center justify-between w-full">
+          <label className="flex items-center justify-between gap-2 text-gray lg:text-lg dark:text-[#b1aeae]">
             <svg className="w-4 h-4 fill-primary-dark">
               <use href={`${icons}#icon-eye`}></use>
             </svg>
