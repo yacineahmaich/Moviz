@@ -27,23 +27,25 @@ const TopWatched = () => {
         {!isLoading | (page > 1) && <MoviesList movies={movies} />}
       </div>
 
-      <div className="w-full flex justify-center py-8">
-        <button
-          className="w-44 flex justify-center py-2 rounded bg-slate-100 uppercase text-dark text-sm shadow-md"
-          onClick={getNextPage}
-        >
-          {isLoading && page > 1 ? (
-            <svg className="w-5 h-5 fill-dark animate-spin">
-              <use href={`${icons}#icon-spinner`}></use>
-            </svg>
-          ) : (
-            <>
-              load more
-              <span className="ml-2 font-semibold">&darr;</span>
-            </>
-          )}
-        </button>
-      </div>
+      {!error && (
+        <div className="w-full flex justify-center py-8">
+          <button
+            className="w-44 flex justify-center py-2 rounded bg-slate-100 uppercase text-dark text-sm shadow-md"
+            onClick={getNextPage}
+          >
+            {isLoading && page > 1 ? (
+              <svg className="w-5 h-5 fill-dark animate-spin">
+                <use href={`${icons}#icon-spinner`}></use>
+              </svg>
+            ) : (
+              <>
+                load more
+                <span className="ml-2 font-semibold">&darr;</span>
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
