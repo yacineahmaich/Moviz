@@ -48,3 +48,11 @@
 *::-webkit-scrollbar-thumb {
   background-color: #444;
 }
+
+/* Toast */
+.dark .toast {
+  background-color: #000 !important;
+}
+.dark .toast .Toastify__toast-icon svg {
+  fill: red !important;
+}

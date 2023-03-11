@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { TIMEOUT_SEC } from "../config/APP";
 import { timeout } from "../utils";
+import { toast } from "react-toastify";
 
 const useFetchMovies = (url) => {
   const [movies, setMovies] = useState([]);
@@ -35,6 +36,9 @@ const useFetchMovies = (url) => {
         setMovies((movies) => [...movies, ...newPageMovies]);
         setTotalPages(data.total_pages);
       } catch (err) {
+        toast.error("Something went Wrong! Please check your connection 💥", {
+          className: "toast",
+        });
         setError(err);
       } finally {
         setIsLoading(false);

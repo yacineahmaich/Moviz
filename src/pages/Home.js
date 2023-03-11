@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import icons from "../assets/icons.svg";
 import usePage from "../hooks/usePage";
+import useScrollup from "../hooks/useScrollup";
 import { API_BASE_URL, API_KEY } from "../config/API";
 import useFetchMovies from "../hooks/useFetchMovies";
 import { getCardsSkeleton } from "../components/utils/MovieCardSkeleton";
@@ -15,10 +16,7 @@ const Home = () => {
     `${API_BASE_URL}discover/movie?api_key=${API_KEY}&sort_by=vote_count.desc&page=${page}`
   );
 
-  // scroll to the top of the page
-  useEffect(() => {
-    window.scrollTo({ left: 0, top: 0 });
-  }, []);
+  useScrollup();
 
   return (
     <div className="w-full">
@@ -32,7 +30,7 @@ const Home = () => {
         {!isLoading | (page > 1) && <MoviesList movies={movies} />}
       </div>
 
-      {!error && (
+      {!error && page < totalPages && (
         <div className="flex justify-center w-full py-8">
           <button
             className="flex justify-center py-2 text-sm uppercase rounded shadow-md w-44 bg-slate-100 text-dark"
@@ -49,6 +47,15 @@ const Home = () => {
               </>
             )}
           </button>
+        </div>
+      )}
+
+      {/* err message */}
+      {error && page === 1 && (
+        <div className="w-full h-full flex-col flex justify-center items-center">
+          <svg className="w-50 md:w-80 h-50 md:h-80 fill-gray">
+            <use href={`${icons}#icon-error`}></use>
+          </svg>
         </div>
       )}
     </div>

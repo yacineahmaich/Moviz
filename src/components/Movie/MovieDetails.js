@@ -27,8 +27,8 @@ const MovieDetails = ({
       {/* info */}
       <div className="flex flex-col w-full h-full px-0 sm:px-6 font-bebas sm:pt-2 md:pt-4">
         <div>
-          <div className="flex items-baseline w-full gap-3 mb-1 sm:justify-start md:mb-4">
-            <h2 className="text-3xl font-semibold tracking-wide uppercase sm:text-2xl lg:text-5xl sm:text-left text-dark dark:text-gray-light">
+          <div className="flex items-center w-full gap-3 mb-1 sm:justify-start md:mb-4">
+            <h2 className="text-3xl font-semibold tracking-wide uppercase sm:text-2xl lg:text-5xl sm:text-left text-dark  dark:text-gray-light">
               {title}
             </h2>
             {/* save button */}
@@ -53,12 +53,12 @@ const MovieDetails = ({
           </div>
           {/* Date & Rate */}
           <div>
-            <h5 className="text-xl text-dark dark:text-black md:text-2xl">
+            <h5 className="text-xl text-dark dark:text-[#b1aeae] md:text-2xl">
               {releaseDate}
             </h5>
-            <label className="flex items-center gap-1 text-xl">
+            <label className="flex items-center gap-2 text-xl dark:text-[#b1aeae]">
               <span>{rate}</span>
-              <svg className="w-4 h-4 translate-y-[-2px]">
+              <svg className="w-4 h-4 translate-y-[-2px] fill-primary-dark">
                 <use href={`${icons}#icon-star`}></use>
               </svg>
             </label>

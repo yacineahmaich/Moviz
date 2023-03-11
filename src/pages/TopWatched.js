@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import icons from "../assets/icons.svg";
 import usePage from "../hooks/usePage";
+import useScrollup from "../hooks/useScrollup";
 import { API_BASE_URL, API_KEY } from "../config/API";
 import useFetchMovies from "../hooks/useFetchMovies";
 import { getCardsSkeleton } from "../components/utils/MovieCardSkeleton";
@@ -12,10 +13,7 @@ const TopWatched = () => {
     `${API_BASE_URL}movie/top_rated?api_key=${API_KEY}&page=${page}`
   );
 
-  // scroll to the top of the page
-  useEffect(() => {
-    window.scrollTo({ left: 0, top: 0 });
-  }, []);
+  useScrollup();
 
   return (
     <div className="w-full">
@@ -27,7 +25,7 @@ const TopWatched = () => {
         {!isLoading | (page > 1) && <MoviesList movies={movies} />}
       </div>
 
-      {!error && (
+      {!error && page < totalPages && (
         <div className="w-full flex justify-center py-8">
           <button
             className="w-44 flex justify-center py-2 rounded bg-slate-100 uppercase text-dark text-sm shadow-md"
@@ -44,6 +42,15 @@ const TopWatched = () => {
               </>
             )}
           </button>
+        </div>
+      )}
+
+      {/* err message */}
+      {error && page === 1 && (
+        <div className="w-full h-full flex-col flex justify-center items-center">
+          <svg className="w-50 md:w-80 h-50 md:h-80 fill-gray">
+            <use href={`${icons}#icon-error`}></use>
+          </svg>
         </div>
       )}
     </div>
