@@ -10,6 +10,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <SavedProvider>
     <App />
-    <ToastContainer theme="colored" />
+    <ToastContainer theme="colored" draggable />
   </SavedProvider>
 );

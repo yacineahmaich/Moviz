@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSavedContext } from "../context/saved";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import useScrollup from "../hooks/useScrollup";
+import { toast } from "react-toastify";
 import {
   MovieDetails,
   Cast,
@@ -11,14 +13,25 @@ import {
 import { API_BASE_URL, API_KEY } from "../config/API";
 
 const Movie = () => {
+  const navigate = useNavigate();
   // get MovieId from url
   const { id } = useParams();
 
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState({
+    genres: [],
+    cast: [],
+    recommandations: [],
+  });
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useScrollup();
 
   useEffect(() => {
-    window.scrollTo({ left: 0, top: 0 });
+    error && navigate("/");
+  }, [error, navigate]);
+
+  useEffect(() => {
     (async function () {
       try {
         setIsLoading(true);
@@ -77,7 +90,9 @@ const Movie = () => {
           recommandations,
         });
       } catch (err) {
-        console.error(err.message);
+        toast.error("Coudn't get movie details!", { className: "toast" });
+
+        setError(err);
       } finally {
         setIsLoading(false);
       }
