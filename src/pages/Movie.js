@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSavedContext } from "../context/saved";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useScrollup from "../hooks/useScrollup";
 import { toast } from "react-toastify";
 import {
@@ -14,7 +14,6 @@ import { API_BASE_URL, API_KEY } from "../config/API";
 import ErrorMessage from "../components/utils/ErrorMessage";
 
 const Movie = () => {
-  const navigate = useNavigate();
   // get MovieId from url
   const { id } = useParams();
 
@@ -32,10 +31,6 @@ const Movie = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
   }, [id]);
-
-  // useEffect(() => {
-  //   error && navigate("/");
-  // }, [error, navigate]);
 
   useEffect(() => {
     (async function () {
