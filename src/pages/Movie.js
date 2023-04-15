@@ -27,6 +27,11 @@ const Movie = () => {
 
   useScrollup();
 
+  // when navigate to movie from recommandation
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  }, [id]);
+
   useEffect(() => {
     error && navigate("/");
   }, [error, navigate]);
