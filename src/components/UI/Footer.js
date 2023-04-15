@@ -10,7 +10,7 @@ const Footer = () => {
           href="https://github.com/yacineahmaich"
           target="_blank"
           rel="noreferrer"
-          className="underline font-semibold text-dark dark:text-white"
+          className="font-semibold underline text-dark dark:text-white"
         >
           Yacine Ahmaich
         </a>{" "}
@@ -19,22 +19,34 @@ const Footer = () => {
 
       <ul className="flex gap-5 fill-gray dark:fill-gray-light">
         <li className="">
-          <a href="#zd">
-            <svg className="w-4 h-4 md:w-5 md:h-5  hover:fill-dark dark:hover:fill-inherit transition-all">
+          <a
+            href="https://twitter.com/yacine_a23"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <svg className="w-4 h-4 transition-all md:w-5 md:h-5 hover:fill-dark dark:hover:fill-inherit">
               <use href={`${icons}#icon-twitter`}></use>
             </svg>
           </a>
         </li>
         <li className="">
-          <a href="#zd">
-            <svg className="w-4 h-4 md:w-5 md:h-5 hover:fill-dark dark:hover:fill-inherit transition-all">
+          <a
+            href="https://github.com/yacineahmaich"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <svg className="w-4 h-4 transition-all md:w-5 md:h-5 hover:fill-dark dark:hover:fill-inherit">
               <use href={`${icons}#icon-instagram`}></use>
             </svg>
           </a>
         </li>
         <li className="">
-          <a href="#zd">
-            <svg className="w-4 h-4 md:w-5 md:h-5 hover:fill-dark dark:hover:fill-inherit transition-all">
+          <a
+            href="https://github.com/yacineahmaich"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <svg className="w-4 h-4 transition-all md:w-5 md:h-5 hover:fill-dark dark:hover:fill-inherit">
               <use href={`${icons}#icon-github`}></use>
             </svg>
           </a>

@@ -33,9 +33,9 @@ const Movie = () => {
     window.scrollTo({ top: 0, left: 0 });
   }, [id]);
 
-  useEffect(() => {
-    error && navigate("/");
-  }, [error, navigate]);
+  // useEffect(() => {
+  //   error && navigate("/");
+  // }, [error, navigate]);
 
   useEffect(() => {
     (async function () {

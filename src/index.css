@@ -20,14 +20,14 @@
 
 @layer components {
   .rate-tag {
-    @apply absolute top-0 left-0 bg-primary-dark  flex items-center gap-2 py-0 md:py-1  px-3  pr-4 md:pr-5 lg:pr-6 tag;
+    @apply absolute top-0 left-0 flex items-center gap-2 px-3 py-0 pr-4 bg-primary-dark md:py-1 md:pr-5 lg:pr-6 tag;
   }
 
   .side-bar-icon {
-    @apply w-6 h-6 md:w-8 md:h-8 fill-inherit transition-all hover:fill-primary;
+    @apply w-6 h-6 transition-all md:w-8 md:h-8 fill-inherit hover:fill-primary;
   }
   .side-bar-tooltip {
-    @apply absolute left-20 rounded-xl text-white font-medium capitalize text-sm w-auto py-2 px-4 bg-dark top-1/2 border border-white -translate-y-1/2  scale-0 opacity-0 md:group-hover:scale-100 md:group-hover:opacity-100 transition-all duration-200 origin-left;
+    @apply absolute w-auto px-4 py-2 text-sm font-medium text-white capitalize transition-all duration-200 origin-left scale-0 -translate-y-1/2 border border-white opacity-0 left-20 rounded-xl bg-dark top-1/2 md:group-hover:scale-100 md:group-hover:opacity-100;
   }
 }
 /* SCROLL BAR */

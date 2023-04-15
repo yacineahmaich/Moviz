@@ -28,9 +28,9 @@ const Popular = () => {
       </div>
 
       {!error && page < totalPages && (
-        <div className="w-full flex justify-center py-8">
+        <div className="flex justify-center w-full py-8">
           <button
-            className="w-44 flex justify-center py-2 rounded bg-slate-100 uppercase text-dark text-sm shadow-md"
+            className="flex justify-center py-2 text-sm uppercase rounded shadow-md w-44 bg-slate-100 text-dark"
             onClick={getNextPage}
           >
             {isLoading && page > 1 ? (
