@@ -14,7 +14,7 @@ const Search = () => {
     `${API_BASE_URL}search/movie?api_key=${API_KEY}&query=${searchQuery}`
   );
 
-  const suggestions = data?.results.slice(0, 10) ?? [];
+  const suggestions = data?.results ?? [];
 
   const searchTermChangeHandler = (e) => {
     setSearchTerm(e.target.value);
@@ -41,7 +41,7 @@ const Search = () => {
 
       {/* search suggestions */}
       {searchTerm && !isLoading && (
-        <div className="absolute left-0 w-full py-3 mt-2 bg-white border rounded-lg shadow-lg dark:bg-dark border-gray top-full">
+        <div className="absolute left-0 w-full py-3 mt-2 overflow-y-scroll bg-white border rounded-lg shadow-lg dark:bg-dark border-gray top-full max-h-72">
           <ul
             className="flex flex-col w-full text-dark dark:text-gray-light font-bebas"
             onClick={() => setSearchTerm("")}
