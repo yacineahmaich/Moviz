@@ -9,6 +9,7 @@ import { getCardsSkeleton } from "../components/utils/MovieCardSkeleton";
 import MovieShowCase from "../components/Home/MovieShowCase";
 import MovieShowCaseSkeleton from "../components/Home/MovieShowCaseSkeleton";
 import MoviesList from "../components/utils/MoviesList";
+import ErrorMessage from "../components/utils/ErrorMessage";
 
 const Home = () => {
   const { page, getNextPage } = usePage();
@@ -19,7 +20,7 @@ const Home = () => {
   useScrollup();
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-2 md:mt-0">
       {isLoading && page === 1 && <MovieShowCaseSkeleton />}
       {!isLoading | (page > 1) ? <MovieShowCase movies={movies} /> : null}
       <div className="px-4 py-2 mt-12 mb-4 md:px-8">
@@ -51,13 +52,7 @@ const Home = () => {
       )}
 
       {/* err message */}
-      {error && page === 1 && (
-        <div className="w-full h-full flex-col flex justify-center items-center">
-          <svg className="w-50 md:w-80 h-50 md:h-80 fill-gray">
-            <use href={`${icons}#icon-error`}></use>
-          </svg>
-        </div>
-      )}
+      {error && page === 1 && <ErrorMessage error={error} />}
     </div>
   );
 };

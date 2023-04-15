@@ -11,6 +11,7 @@ import {
 } from "../components/Movie";
 
 import { API_BASE_URL, API_KEY } from "../config/API";
+import ErrorMessage from "../components/utils/ErrorMessage";
 
 const Movie = () => {
   const navigate = useNavigate();
@@ -116,6 +117,8 @@ const Movie = () => {
     <div className="w-full p-4 min-h-[calc(100vh-16px)] md:min-h-[calc(100vh-20px)] md:p-5 lg:p-7">
       {isLoading ? (
         <MovieDetailsSkeleton />
+      ) : error ? (
+        <ErrorMessage error={error} />
       ) : (
         <>
           <MovieDetails

@@ -5,8 +5,9 @@ import useScrollup from "../hooks/useScrollup";
 import { API_BASE_URL, API_KEY } from "../config/API";
 import useFetchMovies from "../hooks/useFetchMovies";
 import { getCardsSkeleton } from "../components/utils/MovieCardSkeleton";
-
 import MoviesList from "../components/utils/MoviesList";
+import ErrorMessage from "../components/utils/ErrorMessage";
+
 
 const Popular = () => {
   const { page, getNextPage } = usePage();
@@ -18,8 +19,8 @@ const Popular = () => {
 
   return (
     <div className="w-full">
-      <div className="mt-12 mb-4 py-2 px-4 md:px-8">
-        <h3 className="text-xl md:text-2xl mb-8 dark:text-gray-light">
+      <div className="px-4 py-2 mt-4 mb-4 md:px-8">
+        <h3 className="mb-8 text-xl md:text-2xl dark:text-gray-light">
           Popular
         </h3>
         {isLoading && page === 1 && getCardsSkeleton(8)}
@@ -48,11 +49,7 @@ const Popular = () => {
 
       {/* err message */}
       {error && page === 1 && (
-        <div className="w-full h-full flex-col flex justify-center items-center">
-          <svg className="w-50 md:w-80 h-50 md:h-80 fill-gray">
-            <use href={`${icons}#icon-error`}></use>
-          </svg>
-        </div>
+        <ErrorMessage error={error} />
       )}
     </div>
   );

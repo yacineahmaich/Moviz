@@ -6,6 +6,7 @@ import { API_BASE_URL, API_KEY } from "../config/API";
 import useFetchMovies from "../hooks/useFetchMovies";
 import { getCardsSkeleton } from "../components/utils/MovieCardSkeleton";
 import MoviesList from "../components/utils/MoviesList";
+import ErrorMessage from "../components/utils/ErrorMessage";
 
 const TopWatched = () => {
   const { page, getNextPage } = usePage();
@@ -17,8 +18,8 @@ const TopWatched = () => {
 
   return (
     <div className="w-full">
-      <div className="mt-12 mb-4 py-2 px-4 md:px-8">
-        <h3 className="text-xl md:text-2xl mb-8 dark:text-gray-light">
+      <div className="px-4 py-2 mt-4 mb-4 md:px-8">
+        <h3 className="mb-8 text-xl md:text-2xl dark:text-gray-light">
           Top Watched
         </h3>
         {isLoading && page === 1 && getCardsSkeleton(8)}
@@ -26,9 +27,9 @@ const TopWatched = () => {
       </div>
 
       {!error && page < totalPages && (
-        <div className="w-full flex justify-center py-8">
+        <div className="flex justify-center w-full py-8">
           <button
-            className="w-44 flex justify-center py-2 rounded bg-slate-100 uppercase text-dark text-sm shadow-md"
+            className="flex justify-center py-2 text-sm uppercase rounded shadow-md w-44 bg-slate-100 text-dark"
             onClick={getNextPage}
           >
             {isLoading && page > 1 ? (
@@ -46,13 +47,7 @@ const TopWatched = () => {
       )}
 
       {/* err message */}
-      {error && page === 1 && (
-        <div className="w-full h-full flex-col flex justify-center items-center">
-          <svg className="w-50 md:w-80 h-50 md:h-80 fill-gray">
-            <use href={`${icons}#icon-error`}></use>
-          </svg>
-        </div>
-      )}
+      {error && page === 1 && <ErrorMessage error={error} />}
     </div>
   );
 };
