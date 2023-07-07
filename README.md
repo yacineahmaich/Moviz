@@ -1,4 +1,4 @@
-# Moviz
+# [Moviz](https://moviz-app.netlify.app/)
 
 A movie search web app that showcase movies by categories and also make it possible to save movies
 
