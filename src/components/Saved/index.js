@@ -21,10 +21,10 @@ const Saved = ({ onClose }) => {
         <MoviesList movies={savedMovies} />
         {savedMovies.length === 0 && (
           <div className="flex flex-col items-center justify-center w-full gap-6">
-            <svg className="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 fill-gray">
+            <svg className="w-32 h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 fill-gray dark:fill-slate-300">
               <use href={`${icons}#icon-empty`}></use>
             </svg>
-            <p className="mb-8 text-sm md:text-lg text-dark dark:text-black">
+            <p className="mb-8 text-sm font-semibold md:text-lg text-dark dark:text-slate-300">
               Your saved is currently empty!
             </p>
           </div>
@@ -32,7 +32,7 @@ const Saved = ({ onClose }) => {
       </div>
 
       <button
-        className="absolute p-2 rounded-full shadow-md top-4 right-4 dark:shadow-gray"
+        className="absolute p-2 rounded-full shadow-md top-4 right-4 dark:shadow-slate-500"
         onClick={onClose}
       >
         <svg className="w-4 h-4 md:w-5 md:h-5 fill-dark dark:fill-white">

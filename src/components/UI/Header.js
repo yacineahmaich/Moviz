@@ -4,6 +4,7 @@ import icons from "../../assets/icons.svg";
 import Modal from "../UI/Modal";
 import Saved from "../Saved";
 import Search from "./Search";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [showSaved, setShowSaved] = useState(false);
@@ -48,7 +49,9 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 z-30 flex items-center justify-between w-full h-16 px-4 bg-white border-b md:h-20 md:px-8 md:pl-28 dark:bg-dark border-gray-light dark:border-zinc-700">
       <div className="h-10 overflow-hidden md:h-14 dark:rounded-lg">
-        <img src={logo} alt="Logo" className="max-h-full" />
+        <Link to="/">
+          <img src={logo} alt="Logo" className="max-h-full" />
+        </Link>
       </div>
 
       <div className="flex items-center h-full gap-2 md:gap-6">
